@@ -837,7 +837,7 @@ exports.updateUserProfileImage = async (req, res) => {
       // Upload new image to Cloudinary
       const image = await uploadImageToCloudinary(
         profileImage,
-        process.env.FOLDER_NAME || "StudyNotionProfileImages",
+        process.env.FOLDER_NAME || "LearnismProfileImages",
         1000,
         1000
       );

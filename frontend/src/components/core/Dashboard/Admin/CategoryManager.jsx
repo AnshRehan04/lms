@@ -7,6 +7,7 @@ import { toast } from 'react-hot-toast';
 const CategoryManager = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const getCategories = useCallback(async () => {
     setLoading(true);
@@ -38,16 +39,23 @@ const CategoryManager = () => {
   const handleCategoryAdded = () => {
     // Refetch categories after a new one is added
     getCategories();
+    setShowForm(false);
   };
 
   return (
-    <div className="space-y-8 text-richblack-5 p-4 md:p-8">
+    <div className="space-y-8 text-black p-4 md:p-8">
       <h1 className="text-3xl font-medium">Category Management</h1>
 
       {/* Add New Category Section */}
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">Add New Category</h2>
-        <CategoryForm onSuccess={handleCategoryAdded} />
+        <button
+          className="bg-yellow-50 text-black px-4 py-2 rounded hover:bg-yellow-100 transition"
+          onClick={() => setShowForm((prev) => !prev)}
+        >
+          {showForm ? 'Hide Form' : 'Add Category'}
+        </button>
+        {showForm && <CategoryForm onSuccess={handleCategoryAdded} />}
       </div>
 
       {/* Existing Categories Section */}
@@ -58,21 +66,19 @@ const CategoryManager = () => {
               <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-yellow-50"></div>
           </div>
         ) : categories.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((category) => (
               <div
                 key={category._id}
-                className="p-4 border border-richblack-700 bg-richblack-800 rounded-md"
+                className="bg-white text-black p-6 rounded-xl shadow-md border border-gray-200 flex flex-col gap-2 transition-transform hover:scale-105 hover:shadow-lg"
               >
-                <h3 className="font-semibold text-lg">{category.name}</h3>
-                <p className="text-richblack-300 mt-1 text-sm">
-                  {category.description}
-                </p>
+                <h3 className="font-semibold text-lg mb-1">{category.name}</h3>
+                <p className="text-gray-600 text-sm">{category.description}</p>
               </div>
             ))}
           </div>
         ) : (
-            <p className="text-richblack-300">No categories found. Add one above!</p>
+            <p className="text-gray-400">No categories found. Add one above!</p>
         )}
       </div>
     </div>

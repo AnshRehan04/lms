@@ -33,13 +33,13 @@ export default function UpdatePassword() {
   return (
     <>
       <form onSubmit={handleSubmit(submitPasswordForm)}>
-        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-6 sm:px-12">
-          <h2 className="text-lg font-semibold text-richblack-5">Password</h2>
+        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-[#E0E0E0] bg-[#FFFFFF] p-8 px-6 sm:px-12">
+          <h2 className="text-lg font-semibold text-[#5A5A5A]">Password</h2>
 
           <div className="flex flex-col gap-5 lg:flex-row">
           {/* Current Password */}
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="oldPassword" className="lable-style">
+              <label htmlFor="oldPassword" className="text-[#7A7A7A] font-medium mb-1">
                 Current Password
               </label>
 
@@ -48,7 +48,7 @@ export default function UpdatePassword() {
                 name="oldPassword"
                 id="oldPassword"
                 placeholder="Enter Current Password"
-                className="form-style"
+                className="w-full rounded-[0.5rem] bg-[#F5F5F5] border border-[#D1D1D1] p-[12px] text-[#5A5A5A] placeholder-[#9E9E9E] outline-none focus:ring-2 focus:ring-[#8BB8E8] transition"
                 {...register("oldPassword", { required: true })}
               />
 
@@ -64,7 +64,7 @@ export default function UpdatePassword() {
               </span>
 
               {errors.oldPassword && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-[#FFA5A5]">
                   Please enter your Current Password.
                 </span>
               )}
@@ -72,7 +72,7 @@ export default function UpdatePassword() {
 
             {/* new password */}
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="newPassword" className="lable-style">
+              <label htmlFor="newPassword" className="text-[#7A7A7A] font-medium mb-1">
                 New Password
               </label>
 
@@ -81,7 +81,7 @@ export default function UpdatePassword() {
                 name="newPassword"
                 id="newPassword"
                 placeholder="Enter New Password"
-                className="form-style"
+                className="w-full rounded-[0.5rem] bg-[#F5F5F5] border border-[#D1D1D1] p-[12px] text-[#5A5A5A] placeholder-[#9E9E9E] outline-none focus:ring-2 focus:ring-[#8BB8E8] transition"
                 {...register("newPassword", { required: true })}
               />
 
@@ -96,7 +96,7 @@ export default function UpdatePassword() {
                 )}
               </span>
               {errors.newPassword && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-[#FFA5A5]">
                   Please enter your New Password.
                 </span>
               )}
@@ -104,7 +104,7 @@ export default function UpdatePassword() {
 
             {/*confirm new password */}
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="confirmNewPassword" className="lable-style">
+              <label htmlFor="confirmNewPassword" className="text-[#7A7A7A] font-medium mb-1">
                 Confirm New Password
               </label>
 
@@ -113,7 +113,7 @@ export default function UpdatePassword() {
                 name="confirmNewPassword"
                 id="confirmNewPassword"
                 placeholder="Enter Confirm New Password"
-                className="form-style"
+                className="w-full rounded-[0.5rem] bg-[#F5F5F5] border border-[#D1D1D1] p-[12px] text-[#5A5A5A] placeholder-[#9E9E9E] outline-none focus:ring-2 focus:ring-[#8BB8E8] transition"
                 {...register("confirmNewPassword", { required: true })}
               />
 
@@ -128,7 +128,7 @@ export default function UpdatePassword() {
                 )}
               </span>
               {errors.confirmNewPassword && (
-                <span className="-mt-1 text-[12px] text-yellow-100">
+                <span className="-mt-1 text-[12px] text-[#FFA5A5]">
                   Please enter your Confirm New Password.
                 </span>
               )}
@@ -140,11 +140,11 @@ export default function UpdatePassword() {
         <div className="flex justify-end gap-2">
           <button
             onClick={() => { navigate("/dashboard/my-profile") }}
-            className="cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50"
+            className="cursor-pointer rounded-md bg-[#FFA5A5] hover:bg-[#FF7E7E] py-2 px-5 font-semibold text-white"
           >
             Cancel
           </button>
-          <IconBtn type="submit" text="Update" />
+          <IconBtn type="submit" text="Update" customClasses="bg-[#FACC15] hover:bg-[#EAB308] text-[#111827]" />
         </div>
 
       </form>

@@ -2,7 +2,7 @@
 <img src='https://github.com/Aniruddha-Gade/Study-Notion-EdTech__MERN-Stack/blob/main/frontend/src/assets/Logo/Logo-Full-Light.png' />
 
 # Project Description 📝
-StudyNotion is a fully functional ed-tech platform that enables users to create, consume, and rate educational content. <br/>
+Learnism is a fully functional ed-tech platform that enables users to create, consume, and rate educational content. <br/>
 The platform is built using the **MERN stack**, which includes ReactJS, NodeJS, MongoDB, and ExpressJS.
 
 <h2>Live link 🌍📡 - [  https://study-notion-mern-stack.netlify.app/  ]</h2>
@@ -18,7 +18,7 @@ The platform is built using the **MERN stack**, which includes ReactJS, NodeJS, 
 
 | Section                 | Description                                  |
 |-------------------------|----------------------------------------------|
-| [StudyNotion Aim](#studynotion-aim-)        | 📚 Overview of StudyNotion's goals            |
+| [Learnism Aim](#Learnism-aim-)        | 📚 Overview of Learnism's goals            |
 | [Tech Stack](#tech-stack-)             | 💻🔧 Technologies used in the project         |
 | [System Architecture](#system-architecture-)    | 🏰 Overview of the system architecture      |
 | [Architecture Diagram](#architecture-diagram-)   | 🏗️ Diagram illustrating the architecture   |
@@ -32,7 +32,7 @@ The platform is built using the **MERN stack**, which includes ReactJS, NodeJS, 
 
 
 
-## StudyNotion Aim 📚 
+## Learnism Aim 📚 
 <br/>
 1️⃣ A seamless and interactive learning experience for students, making education more accessible and engaging.<br/>
 2️⃣ A platform for instructors to showcase their expertise and connect with learners across the globe.<br/>
@@ -70,7 +70,7 @@ The platform is built using the **MERN stack**, which includes ReactJS, NodeJS, 
 
 ## System Architecture 🏰
 <br/>
-☝ The StudyNotion ed-tech platform consists of three main components:  <br/>
+☝ The Learnism ed-tech platform consists of three main components:  <br/>
 The front end, the back end, and the database. The platform follows a client-server architecture, with the front end serving as the client and the back end and database serving as the server.
 
 🎨 Front-end  <br/>
@@ -86,13 +86,13 @@ The database for the platform is built using MongoDB, which is a NoSQL database 
 
 ## Architecture Diagram 🏗️
 <br/>
-Here is a high-level diagram that illustrates the architecture of the StudyNotion ed-tech platform:
+Here is a high-level diagram that illustrates the architecture of the Learnism ed-tech platform:
 <img width='60%' src='https://github.com/Aniruddha-Gade/Study-Notion-EdTech__MERN-Stack/blob/main/screenshots/Architecture%20Diagram.png' />
 
 
 <hr/>
 
-#### The front end of StudyNotion has all the necessary pages that an ed-tech platform should have. Some of these pages are: 
+#### The front end of Learnism has all the necessary pages that an ed-tech platform should have. Some of these pages are: 
 
 For Students:
 - **Homepage 🏠:** A brief introduction to the platform with links to the course list and user details and random background.
@@ -120,14 +120,14 @@ The back-end of the platform is built using NodeJS and ExpressJS, providing APIs
 - **User Authentication and Authorization 🔐:** Students and instructors can sign up and log in to the platform using their email addresses and passwords. The platform also supports OTP (One-Time Password) verification and forgot password functionality for added security.
 - **Course Management 🛠️:** Instructors can create, read, update, and delete courses, as well as manage course content and media. Students can view and rate courses.
 - **Payment Integration 💳:** Students will purchase and enroll in courses by completing the checkout flow, followed by Razorpay integration for payment handling.
-- **Cloud-based Media Management ☁️ :** StudyNotion uses Cloudinary, a cloud-based media management service, to store and manage all media content, including images, videos, and documents.
+- **Cloud-based Media Management ☁️ :** Learnism uses Cloudinary, a cloud-based media management service, to store and manage all media content, including images, videos, and documents.
 - **Markdown Formatting ✍️:** Course content in document format is stored in Markdown format, allowing for easier display and rendering on the front-end.
 
 
 
 #### Data Models and Database Schema
 
-The back-end of StudyNotion uses several data models and database schemas to manage data, including:
+The back-end of Learnism uses several data models and database schemas to manage data, including:
 
 - **Student Schema 🧑‍🎓:** Includes fields such as name, email, password, and course details for each student.
 - **Instructor Schema 👩‍🏫:** Includes fields such as name, email, password, and course details for each instructor.

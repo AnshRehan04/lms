@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from "react-redux"
 
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
@@ -67,20 +66,20 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
 
   return (
     <>
-      <Table className="rounded-2xl border border-richblack-800 ">
+      <Table className="rounded-2xl border border-[#DEE2E6] bg-[#FFFFFF] ">
         {/* heading */}
         <Thead>
-          <Tr className="flex gap-x-10 rounded-t-3xl border-b border-b-richblack-800 px-6 py-2">
-            <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">
+          <Tr className="flex gap-x-10 rounded-t-3xl border-b border-b-[#DEE2E6] px-6 py-2 bg-[#FFFFFF]">
+            <Th className="flex-1 text-left text-sm font-bold uppercase text-[#212529]">
               Courses
             </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+            <Th className="text-left text-sm font-bold uppercase text-[#212529]">
               Duration
             </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+            <Th className="text-left text-sm font-bold uppercase text-[#212529]">
               Price
             </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+            <Th className="text-left text-sm font-bold uppercase text-[#212529]">
               Actions
             </Th>
           </Tr>
@@ -98,7 +97,7 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
         <Tbody>
           {!loading && courses?.length === 0 ? (
             <Tr>
-              <Td className="py-10 text-center text-2xl font-medium text-richblack-100">
+              <Td className="py-10 text-center text-2xl font-medium text-[#495057]">
                 No courses found
               </Td>
             </Tr>
@@ -107,19 +106,19 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
               courses?.map((course) => (
                 <Tr
                   key={course._id}
-                  className="flex gap-x-10 border-b border-richblack-800 px-6 py-8"
+                  className="flex gap-x-10 border-b border-[#DEE2E6] px-6 py-8 bg-[#FFFFFF]"
                 >
                   <Td className="flex flex-1 gap-x-4 relative">
                     {/* course Thumbnail */}
                     <Img
                       src={course?.thumbnail}
                       alt={course?.courseName}
-                      className="h-[148px] min-w-[270px] max-w-[270px] rounded-lg object-cover"
+                      className="h-[148px] min-w-[270px] max-w-[270px] rounded-lg object-cover border border-[#DEE2E6]"
                     />
 
                     <div className="flex flex-col">
-                      <p className="text-lg font-semibold text-richblack-5 capitalize">{course.courseName}</p>
-                      <p className="text-xs text-richblack-300 ">
+                      <p className="text-lg font-semibold text-[#212529] capitalize">{course.courseName}</p>
+                      <p className="text-xs text-[#495057] ">
                         {course.courseDescription.split(" ").length > TRUNCATE_LENGTH
                           ? course.courseDescription
                             .split(" ")
@@ -129,24 +128,24 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
                       </p>
 
                       {/* created At */}
-                      <p className="text-[12px] text-richblack-100 mt-4">
+                      <p className="text-[12px] text-[#495057] mt-4">
                         Created: {formatDate(course?.createdAt)}
                       </p>
 
                       {/* updated At */}
-                      <p className="text-[12px] text-richblack-100 ">
+                      <p className="text-[12px] text-[#495057] ">
                         updated: {formatDate(course?.updatedAt)}
                       </p>
 
                       {/* course status */}
                       {course.status === COURSE_STATUS.DRAFT ? (
-                        <p className="mt-2 flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-pink-100">
+                        <p className="mt-2 flex w-fit flex-row items-center gap-2 rounded-full bg-[#FFF9E5] px-2 py-[2px] text-[12px] font-medium text-[#F4C430] border border-[#F4C430]">
                           <HiClock size={14} />
                           Drafted
                         </p>)
                         :
-                        (<div className="mt-2 flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-yellow-100">
-                          <p className="flex h-3 w-3 items-center justify-center rounded-full bg-yellow-100 text-richblack-700">
+                        (<div className="mt-2 flex w-fit flex-row items-center gap-2 rounded-full bg-[#FFF9E5] px-2 py-[2px] text-[12px] font-medium text-[#F4C430] border border-[#F4C430]">
+                          <p className="flex h-3 w-3 items-center justify-center rounded-full bg-[#F4C430] text-[#FFFFFF]">
                             <FaCheck size={8} />
                           </p>
                           Published
@@ -156,16 +155,16 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
                   </Td>
 
                   {/* course duration */}
-                  <Td className="text-sm font-medium text-richblack-100">2hr 30min</Td>
-                  <Td className="text-sm font-medium text-richblack-100">₹{course.price}</Td>
+                  <Td className="text-sm font-medium text-[#495057]">2hr 30min</Td>
+                  <Td className="text-sm font-medium text-[#495057]">₹{course.price}</Td>
 
-                  <Td className="text-sm font-medium text-richblack-100 ">
+                  <Td className="text-sm font-medium text-[#495057] ">
                     {/* Edit button */}
                     <button
                       disabled={loading}
                       onClick={() => { navigate(`/dashboard/edit-course/${course._id}`) }}
                       title="Edit"
-                      className="px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300"
+                      className="px-2 transition-all duration-200 hover:scale-110 hover:text-[#38BDF8]"
                     >
                       <FiEdit2 size={20} />
                     </button>
@@ -190,7 +189,7 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
                         })
                       }}
                       title="Delete"
-                      className="px-1 transition-all duration-200 hover:scale-110 hover:text-[#ff0000]"
+                      className="px-1 transition-all duration-200 hover:scale-110 hover:text-[#F67280]"
                     >
                       <RiDeleteBin6Line size={20} />
                     </button>

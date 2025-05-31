@@ -35,8 +35,8 @@ function LoginForm() {
       className="mt-6 flex w-full flex-col gap-y-4"
     >
       <label className="w-full">
-        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-          Email Address <sup className="text-pink-200">*</sup>
+        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
+          Email Address <sup className="text-pink-500">*</sup>
         </p>
         <input
           required
@@ -45,16 +45,13 @@ function LoginForm() {
           value={email}
           onChange={handleOnChange}
           placeholder="Enter email address"
-          style={{
-            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-          }}
-          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 outline-none"
+          className="w-full rounded-[0.5rem] bg-white border border-gray-300 p-[12px] text-black outline-none focus:ring-2 focus:ring-yellow-400 transition"
         />
       </label>
 
       <label className="relative">
-        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
-          Password <sup className="text-pink-200">*</sup>
+        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
+          Password <sup className="text-pink-500">*</sup>
         </p>
         <input
           required
@@ -63,32 +60,28 @@ function LoginForm() {
           value={password}
           onChange={handleOnChange}
           placeholder="Enter Password"
-          style={{
-            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-          }}
-          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5 outline-none"
+          className="w-full rounded-[0.5rem] bg-white border border-gray-300 p-[12px] pr-12 text-black outline-none focus:ring-2 focus:ring-yellow-400 transition"
         />
         <span
           onClick={() => setShowPassword((prev) => !prev)}
           className="absolute right-3 top-[38px] z-[10] cursor-pointer"
         >
           {showPassword ? (
-            <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+            <AiOutlineEyeInvisible fontSize={24} fill="#888" />
           ) : (
-            <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+            <AiOutlineEye fontSize={24} fill="#888" />
           )}
         </span>
         <Link to="/forgot-password">
-          <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
+          <p className="mt-1 ml-auto max-w-max text-xs text-yellow-600 hover:underline">
             Forgot Password
           </p>
         </Link>
       </label>
 
-
       <button
         type="submit"
-        className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+        className="mt-6 rounded-[8px] bg-yellow-400 hover:bg-yellow-500 py-[12px] px-[12px] font-semibold text-black text-lg shadow transition"
       >
         Sign In
       </button>

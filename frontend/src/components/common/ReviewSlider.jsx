@@ -17,31 +17,50 @@ import { FaStar } from "react-icons/fa"
 import { apiConnector } from "../../services/apiConnector";
 import { ratingsEndpoints } from "../../services/apis"
 
-
-
-
-
-
 function ReviewSlider() {
-  const [reviews, setReviews] = useState(null)
+  const [reviews, setReviews] = useState([])  // Initialize as empty array instead of null
+  const [loading, setLoading] = useState(true)  // Add loading state
   const truncateWords = 15
 
   useEffect(() => {
-    ; (async () => {
-      const { data } = await apiConnector(
-        "GET",
-        ratingsEndpoints.REVIEWS_DETAILS_API
-      )
-      if (data?.success) {
-        setReviews(data?.data)
+    const fetchReviews = async () => {
+      try {
+        setLoading(true)
+        const { data } = await apiConnector(
+          "GET",
+          ratingsEndpoints.REVIEWS_DETAILS_API
+        )
+        if (data?.success) {
+          setReviews(data?.data || [])  // Set empty array as fallback
+        }
+      } catch (error) {
+        console.error("Error fetching reviews:", error)
+        setReviews([])  // Set empty array on error
+      } finally {
+        setLoading(false)
       }
-    })()
+    }
+
+    fetchReviews()
   }, [])
 
-  
-  // console.log('reviews= ', reviews)
-  if(!reviews) return;
+  // Show loading state or empty state
+  if (loading) {
+    return (
+      <div className="text-white text-center py-8">
+        Loading reviews...
+      </div>
+    )
+  }
 
+  // If no reviews, show a message
+  if (!reviews.length) {
+    return (
+      <div className="text-white text-center py-8">
+        No reviews available at the moment.
+      </div>
+    )
+  }
 
   return (
     <div className="text-white">

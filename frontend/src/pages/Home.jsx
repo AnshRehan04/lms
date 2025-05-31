@@ -107,14 +107,33 @@ const Home = () => {
 
     return (
         <React.Fragment>
-            {/* background random image */}
-            <div>
-                <div className="w-full h-[450px] md:h-[650px] absolute top-0 left-0 opacity-[0.3] overflow-hidden object-cover ">
-                    <img src={backgroundImg} alt="Background"
-                        className="w-full h-full object-cover "
-                    />
-
-                    <div className="absolute left-0 bottom-0 w-full h-[250px] opacity_layer_bg "></div>
+            {/* Hero Section - Light Mode Coursera Style */}
+            <div className="w-full h-auto md:h-screen flex flex-col md:flex-row items-center justify-center bg-white px-4 py-10 md:py-0">
+                {/* Left Side */}
+                <div className="flex-1 flex flex-col items-start justify-center gap-8 z-10 max-w-2xl">
+                    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-richblack-900">
+                        Learn without<br />limits
+                    </h1>
+                    <p className="text-lg md:text-xl text-richblack-700 max-w-xl mt-2">
+                        Start, switch, or advance your career with more than 10,000 courses, Professional Certificates, and degrees from world-class universities and companies.
+                    </p>
+                    <div className="flex gap-4 mt-4 flex-col sm:flex-row w-full">
+                        <CTAButton active={true} linkto="/signup" customClasses="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-md font-bold w-full sm:w-auto">
+                            Join For Free
+                        </CTAButton>
+                        <CTAButton active={false} linkto="/signup" customClasses="border-2 border-blue-600 bg-blue-600 text-white  px-8 py-4 text-lg rounded-md font-bold w-full sm:w-auto">
+                            Become an Instructor
+                        </CTAButton>
+                    </div>
+                </div>
+                {/* Right Side: Large Blue L with Person Placeholder */}
+                <div className="flex-1 flex items-center justify-center w-full md:w-auto relative min-h-[350px] mt-10 md:mt-0">
+                    <div className="relative flex items-center justify-center w-[320px] h-[320px]">
+                        {/* Large Blue L as background accent */}
+                        <span className="absolute text-[16rem] font-extrabold text-blue-600 opacity-10 left-0 top-0 select-none">L</span>
+                        {/* Person image placeholder (replace src as needed) */}
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Person" className="relative z-10 w-60 h-60 object-cover rounded-full border-4 border-white shadow-xl" />
+                    </div>
                 </div>
             </div>
 
@@ -141,8 +160,8 @@ const Home = () => {
                         viewport={{ once: false, amount: 0.1 }}
                         className='text-center text-3xl lg:text-4xl font-semibold mt-7  '
                     >
-                        Empower Your Future with
-                        <HighlightText text={"Coding Skills"} />
+                        Turn your passion into a 
+                        <HighlightText text={"Profession"} />
                     </motion.div>
 
                     <motion.div
@@ -152,7 +171,7 @@ const Home = () => {
                         viewport={{ once: false, amount: 0.1 }}
                         className=' mt-4 w-[90%] text-center text-base lg:text-lg font-bold text-richblack-300'
                     >
-                        With our online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands-on projects, quizzes, and personalized feedback from instructors.
+                       Start your coding journey today and unlock endless possibilities.
                     </motion.div>
 
 

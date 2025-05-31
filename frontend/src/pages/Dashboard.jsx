@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { Outlet } from "react-router-dom"
 import Sidebar from '../components/core/Dashboard/Sidebar'
 import Loading from '../components/common/Loading'
+import PurchaseHistory from '../components/core/Dashboard/PurchaseHistory'
 
 const Dashboard = () => {
     // All hooks at the top level
@@ -24,7 +25,7 @@ const Dashboard = () => {
     }
 
     return (
-        <div className='relative flex min-h-[calc(100vh-3.5rem)] '>
+        <div className="min-h-screen w-full bg-white flex">
             <Sidebar />
             <div className='h-[calc(100vh-3.5rem)] overflow-auto w-full'>
                 <div className='mx-auto w-11/12 max-w-[1000px] py-10 '>

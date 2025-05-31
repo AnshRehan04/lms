@@ -8,7 +8,7 @@ require('dotenv').config();
 const User = require('../models/user');
 const Course = require('../models/course');
 const CourseProgress = require("../models/courseProgress")
-
+const Payment = require('../models/Payment');
 
 const { default: mongoose } = require('mongoose')
 
@@ -86,9 +86,10 @@ exports.verifyPayment = async (req, res) => {
     const razorpay_signature = req.body?.razorpay_signature;
     const courses = req.body?.coursesId;
     const userId = req.user.id;
+    const amount = req.body?.amount;
     // console.log(' req.body === ', req.body)
 
-    if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature || !courses || !userId) {
+    if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature || !courses || !userId || !amount) {
         return res.status(400).json({ success: false, message: "Payment Failed, data not found" });
     }
 
@@ -101,6 +102,17 @@ exports.verifyPayment = async (req, res) => {
     if (expectedSignature === razorpay_signature) {
         //enroll student
         await enrollStudents(courses, userId, res);
+        // Save payment record for each course
+        for (const courseId of courses) {
+            await Payment.create({
+                user: userId,
+                course: courseId,
+                paymentId: razorpay_payment_id,
+                orderId: razorpay_order_id,
+                paymentMethod: 'razorpay',
+                amount: amount,
+            });
+        }
         //return res
         return res.status(200).json({ success: true, message: "Payment Verified" });
     }
@@ -193,6 +205,19 @@ exports.sendPaymentSuccessEmail = async (req, res) => {
         return res.status(500).json({ success: false, message: "Could not send email" })
     }
 }
+
+// Get payment history for a user
+exports.getPaymentHistory = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const payments = await Payment.find({ user: userId })
+            .populate('course', 'courseName')
+            .sort({ createdAt: -1 });
+        res.status(200).json({ success: true, payments });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Failed to fetch payment history', error: error.message });
+    }
+};
 
 
 // ================ verify Signature ================

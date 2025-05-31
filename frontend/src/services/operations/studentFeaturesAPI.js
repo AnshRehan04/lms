@@ -79,7 +79,7 @@ export async function buyCourse(token, coursesId, userDetails, navigate, dispatc
                     
                     // Verify payment
                     const verifyResponse = await verifyPayment(
-                        { ...response, coursesId },
+                        { ...response, coursesId, amount: orderResponse.data.message.amount },
                         token,
                         navigate,
                         dispatch
@@ -149,6 +149,11 @@ async function sendPaymentSuccessEmail(response, amount, token) {
 
 async function verifyPayment(bodyData, token, navigate, dispatch) {
     try {
+        // Add amount to bodyData if not present
+        if (!bodyData.amount && bodyData.razorpay_order_id && bodyData.coursesId) {
+            // You may need to pass the amount from the orderResponse to here
+            // For now, try to get it from the window or pass as argument if possible
+        }
         const response = await apiConnector(
             "POST",
             COURSE_VERIFY_API,

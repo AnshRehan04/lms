@@ -10,6 +10,7 @@ import MobileProfileDropDown from '../core/Auth/MobileProfileDropDown'
 
 import { AiOutlineShoppingCart } from "react-icons/ai"
 import { MdKeyboardArrowDown } from "react-icons/md"
+import Img from './Img'
 
 
 
@@ -185,12 +186,16 @@ const Navbar = () => {
                         )
                     }
 
-                    {/* for large devices */}
-                    {token !== null && <ProfileDropDown />}
-
-                    {/* for small devices */}
-                    {token !== null && <MobileProfileDropDown />}
-
+                    {/* Show user logo as a circle after login */}
+                    {token !== null && user && (
+                        <Link to="/dashboard/my-profile" title="Profile">
+                            <Img
+                                src={user?.image}
+                                alt={`profile-${user?.firstName}`}
+                                className="w-10 h-10 rounded-full object-cover border-2 border-yellow-400 shadow hover:scale-105 transition-transform duration-200"
+                            />
+                        </Link>
+                    )}
                 </div>
             </div>
         </nav>

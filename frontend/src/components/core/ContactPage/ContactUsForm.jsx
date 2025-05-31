@@ -49,9 +49,9 @@ const ContactUsForm = () => {
       className="flex flex-col gap-7"
       onSubmit={handleSubmit(submitContactForm)}
     >
-      <div className="flex flex-col gap-5 lg:flex-row">
+      <div className="flex flex-col gap-5 lg:flex-row">``
         <div className="flex flex-col gap-2 lg:w-[48%]">
-          <label htmlFor="firstname" className="lable-style">
+          <label htmlFor="firstname" className="text-[#495057] font-medium mb-1">
             First Name
           </label>
           <input
@@ -59,18 +59,18 @@ const ContactUsForm = () => {
             name="firstname"
             id="firstname"
             placeholder="Enter first name"
-            className="form-style"
+            className="w-full rounded-md bg-[#FFFFFF] border border-[#CED4DA] p-[12px] text-[#212529] placeholder-[#CED4DA] outline-none focus:ring-2 focus:ring-[#FFD43B] transition"
             {...register("firstname", { required: true })}
           />
           {errors.firstname && (
-            <span className="-mt-1 text-[12px] text-yellow-100">
+            <span className="-mt-1 text-[12px] text-[#FFD43B]">
               Please enter your name.
             </span>
           )}
         </div>
         
         <div className="flex flex-col gap-2 lg:w-[48%]">
-          <label htmlFor="lastname" className="lable-style">
+          <label htmlFor="lastname" className="text-[#495057] font-medium mb-1">
             Last Name
           </label>
           <input
@@ -78,14 +78,14 @@ const ContactUsForm = () => {
             name="lastname"
             id="lastname"
             placeholder="Enter last name"
-            className="form-style"
+            className="w-full rounded-md bg-[#FFFFFF] border border-[#CED4DA] p-[12px] text-[#212529] placeholder-[#CED4DA] outline-none focus:ring-2 focus:ring-[#FFD43B] transition"
             {...register("lastname")}
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="email" className="lable-style">
+        <label htmlFor="email" className="text-[#495057] font-medium mb-1">
           Email Address
         </label>
         <input
@@ -93,18 +93,18 @@ const ContactUsForm = () => {
           name="email"
           id="email"
           placeholder="Enter email address"
-          className="form-style"
+          className="w-full rounded-md bg-[#FFFFFF] border border-[#CED4DA] p-[12px] text-[#212529] placeholder-[#CED4DA] outline-none focus:ring-2 focus:ring-[#FFD43B] transition"
           {...register("email", { required: true })}
         />
         {errors.email && (
-          <span className="-mt-1 text-[12px] text-yellow-100">
+          <span className="-mt-1 text-[12px] text-[#FFD43B]">
             Please enter your Email address.
           </span>
         )}
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="phonenumber" className="lable-style">
+        <label htmlFor="phonenumber" className="text-[#495057] font-medium mb-1">
           Phone Number
         </label>
 
@@ -115,12 +115,12 @@ const ContactUsForm = () => {
               name="firstname"
               id="firstname"
               placeholder="Enter first name"
-              className="form-style"
+              className="w-full rounded-md bg-[#FFFFFF] border border-[#CED4DA] p-[12px] text-[#212529] placeholder-[#CED4DA] outline-none focus:ring-2 focus:ring-[#FFD43B] transition"
               {...register("countrycode", { required: true })}
             >
               {CountryCode.map((ele, i) => {
                 return (
-                  <option key={i} value={ele.code}>
+                  <option key={i} value={ele.code} className="text-[#212529]">
                     {ele.code} -{ele.country}
                   </option>
                 )
@@ -134,7 +134,7 @@ const ContactUsForm = () => {
               name="phonenumber"
               id="phonenumber"
               placeholder="12345 67890"
-              className="form-style"
+              className="w-full rounded-md bg-[#FFFFFF] border border-[#CED4DA] p-[12px] text-[#212529] placeholder-[#CED4DA] outline-none focus:ring-2 focus:ring-[#FFD43B] transition"
               {...register("phoneNo", {
                 required: {
                   value: true,
@@ -147,14 +147,14 @@ const ContactUsForm = () => {
           </div>
         </div>
         {errors.phoneNo && (
-          <span className="-mt-1 text-[12px] text-yellow-100">
+          <span className="-mt-1 text-[12px] text-[#FFD43B]">
             {errors.phoneNo.message}
           </span>
         )}
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="lable-style">
+        <label htmlFor="message" className="text-[#495057] font-medium mb-1">
           Message
         </label>
         <textarea
@@ -163,11 +163,11 @@ const ContactUsForm = () => {
           cols="30"
           rows="7"
           placeholder="Enter your message here"
-          className="form-style"
+          className="w-full rounded-md bg-[#FFFFFF] border border-[#CED4DA] p-[12px] text-[#212529] placeholder-[#CED4DA] outline-none focus:ring-2 focus:ring-[#FFD43B] transition"
           {...register("message", { required: true })}
         />
         {errors.message && (
-          <span className="-mt-1 text-[12px] text-yellow-100">
+          <span className="-mt-1 text-[12px] text-[#FFD43B]">
             Please enter your Message.
           </span>
         )}
@@ -176,10 +176,10 @@ const ContactUsForm = () => {
       <button
         disabled={loading}
         type="submit"
-        className={`rounded-md bg-yellow-50 px-6 py-3 text-center text-[13px] font-bold text-black shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] 
+        className={`rounded-md bg-[#FFD43B] px-6 py-3 text-center text-[13px] font-bold text-[#212529] shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] 
          ${!loading &&
-          "transition-all duration-200 hover:scale-95 hover:shadow-none"
-          }  disabled:bg-richblack-500 sm:text-[16px] `}
+          "transition-all duration-200 hover:scale-95 hover:bg-[#74C0FC] hover:text-white hover:shadow-none"
+          }  disabled:bg-[#CED4DA] sm:text-[16px] `}
       >
         Send Message
       </button>

@@ -1,36 +1,32 @@
-
 import LoginForm from "./LoginForm"
 import SignupForm from "./SignupForm"
 import Img from './../../common/Img';
-
 
 function Template({ title, description1, description2, image, formType }) {
   // const { loading } = useSelector((state) => state.auth);
 
   return (
-    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
-      <div className="mx-auto flex w-11/12 max-w-maxContent flex-col-reverse justify-between gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12">
-        <div className="mx-auto w-11/12 max-w-[450px] md:mx-0">
-          <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5">
-            {title}
-          </h1>
-          <p className="mt-4 text-[1.125rem] leading-[1.625rem]">
-            <span className="text-richblack-100">{description1}</span>{" "}
-            <span className="font-edu-sa font-bold italic text-blue-100">
-              {description2}
-            </span>
-          </p>
-
-          {formType === "signup" ? <SignupForm /> : <LoginForm />}
-        </div>
-
-
-        <div className="relative max-w-[550px] md:mx-0 my-0">
+    <div className="min-h-screen w-full bg-white flex items-center justify-center">
+      <div className="flex flex-col md:flex-row w-full max-w-6xl min-h-screen">
+        {/* Left Side: Illustration */}
+        <div className="flex-1 flex items-center justify-center bg-gray-50 p-8 md:p-12">
           <Img
             src={image}
             alt={formType}
-            className={' min-w-[105%] h-full text-white'}
+            className={'object-contain w-[90%] h-[350px] md:h-[420px]'}
           />
+        </div>
+        {/* Right Side: Form */}
+        <div className="flex-1 flex items-center justify-center bg-white p-6">
+          <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+            <h1 className="text-3xl md:text-4xl font-bold text-black mb-2">{title}</h1>
+            <p className="text-base md:text-lg text-gray-500 mb-8">
+              {description1} <span className="font-bold italic text-yellow-500">{description2}</span>
+            </p>
+            <div className="w-full">
+              {formType === "signup" ? <SignupForm /> : <LoginForm />}
+            </div>
+          </div>
         </div>
       </div>
     </div>

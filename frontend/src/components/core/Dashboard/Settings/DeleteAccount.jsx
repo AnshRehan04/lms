@@ -19,15 +19,15 @@ export default function DeleteAccount() {
 
   return (
     <>
-      <div className="my-10 flex flex-row gap-x-5 rounded-md border-[1px] border-pink-700 bg-pink-900 p-8 px-6 sm:px-12">
-        <div className="flex aspect-square h-14 w-14 items-center justify-center rounded-full bg-pink-700">
-          <FiTrash2 className="text-3xl text-pink-200" />
+      <div className="my-10 flex flex-row gap-x-5 rounded-md border-[1px] border-[#FFA5A5] bg-[#FFFFFF] p-8 px-6 sm:px-12">
+        <div className="flex aspect-square h-14 w-14 items-center justify-center rounded-full bg-[#FFA5A5]">
+          <FiTrash2 className="text-3xl text-white" />
         </div>
 
         <div className="flex flex-col ">
-          <h2 className="text-lg font-semibold text-richblack-5 "> Delete Account</h2>
+          <h2 className="text-lg font-semibold text-[#5A5A5A] "> Delete Account</h2>
 
-          <div className="sm:w-3/5 text-pink-25 flex flex-col gap-3 mt-1">
+          <div className="sm:w-3/5 text-[#7A7A7A] flex flex-col gap-3 mt-1">
             <p>Would you like to delete account ?</p>
             <p>
               This account may contain Paid Courses. Deleting your account is
@@ -39,14 +39,14 @@ export default function DeleteAccount() {
           <div className="flex items-center gap-3 mt-4">
             <input
               type="checkbox"
-              className="form-checkbox h-4 w-4 text-indigo-600 rounded-full form-style cursor-pointer"
+              className="form-checkbox h-4 w-4 text-[#FFA5A5] rounded-full form-style cursor-pointer border-[#FFA5A5] focus:ring-[#FFA5A5]"
               checked={check}
               onChange={() => setCheck(prev => !prev)}
             />
 
             <button
               type="button"
-              className="w-fit italic text-pink-300  "
+              className="w-fit italic text-[#FF7E7E] hover:text-[#FFA5A5]"
               onClick={() => check &&
                 setConfirmationModal({
                   text1: "Are you sure ?",
